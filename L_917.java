@@ -20,3 +20,33 @@ class Solution {
     }
     
 }
+
+
+//100% faster solution is to do in-place sorting with two pointers
+class Solution {
+    public String reverseOnlyLetters(String S) {
+        char[] arr = S.toCharArray();
+        int j=S.length()-1;
+        int i=0;
+        if(S.length()==0 || S==null)
+            return "";
+        while(i<=j)
+        {
+            if(!Character.isLetter(arr[i])){
+                i++;
+                continue;
+            }
+            if(!Character.isLetter(arr[j])){
+                j--;
+                continue;
+            }
+            char temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;j--;
+        
+        }
+        return String.valueOf(arr);
+    }
+    
+}
